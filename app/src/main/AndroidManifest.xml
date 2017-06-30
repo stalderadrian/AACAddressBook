@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,8 +20,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.AddAddressActivity"
-            android:label="@string/title_activity_add_address"
+            android:name=".ui.EditAddressActivity"
+            android:label="@string/title_activity_edit_address"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

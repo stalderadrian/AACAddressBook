@@ -6,7 +6,6 @@ import android.arch.lifecycle.LiveData;
 
 import com.noser.aacaddressbook.db.AppDatabase;
 import com.noser.aacaddressbook.db.entity.AddressEntity;
-import com.noser.aacaddressbook.model.Address;
 
 import java.util.List;
 

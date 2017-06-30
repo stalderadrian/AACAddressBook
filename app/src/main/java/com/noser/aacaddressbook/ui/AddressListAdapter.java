@@ -18,10 +18,12 @@ import java.util.List;
 
 public class AddressListAdapter extends RecyclerView.Adapter<AddressListAdapter.AddressRowViewHolder> {
 
-    private List<AddressEntity> mAddresses;
+    private List<AddressEntity> addresses;
+    private View.OnClickListener clickListener;
 
-    public AddressListAdapter(List<AddressEntity> addresses) {
-        this.mAddresses = addresses;
+    public AddressListAdapter(List<AddressEntity> addresses, View.OnClickListener clickListener) {
+        this.addresses = addresses;
+        this.clickListener = clickListener;
     }
 
     @Override
@@ -32,19 +34,20 @@ public class AddressListAdapter extends RecyclerView.Adapter<AddressListAdapter.
 
     @Override
     public void onBindViewHolder(AddressRowViewHolder holder, int position) {
-        Address address = mAddresses.get(position);
+        Address address = addresses.get(position);
         holder.firstNameTextView.setText(address.getFirstName());
         holder.lastNameTextView.setText(address.getLastName());
         holder.itemView.setTag(address);
+        holder.itemView.setOnClickListener(clickListener);
     }
 
     @Override
     public int getItemCount() {
-        return mAddresses.size();
+        return addresses.size();
     }
 
     public void addItems(List<AddressEntity> addresses) {
-        this.mAddresses = addresses;
+        this.addresses = addresses;
         notifyDataSetChanged();
     }
 

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingTop="100dp"
-    tools:context="com.noser.aacaddressbook.ui.AddAddressActivity">
+    tools:context="com.noser.aacaddressbook.ui.EditAddressActivity">
 
     <EditText
         android:id="@+id/firstName"

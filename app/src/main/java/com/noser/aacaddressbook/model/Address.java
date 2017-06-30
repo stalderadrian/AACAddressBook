@@ -6,6 +6,8 @@ package com.noser.aacaddressbook.model;
 
 public interface Address {
     int getId();
+
     String getFirstName();
+
     String getLastName();
 }

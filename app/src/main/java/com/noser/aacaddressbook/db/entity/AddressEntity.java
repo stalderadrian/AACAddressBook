@@ -16,6 +16,12 @@ public class AddressEntity implements Address {
     private String firstName;
     private String lastName;
 
+    public AddressEntity(int id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     @Override
     public int getId() {
         return id;
@@ -40,12 +46,6 @@ public class AddressEntity implements Address {
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public AddressEntity(int id, String firstName, String lastName) {
-        this.id = id;
-        this.firstName = firstName;
         this.lastName = lastName;
     }
 }
