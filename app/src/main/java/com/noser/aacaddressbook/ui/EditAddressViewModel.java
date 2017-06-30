@@ -27,17 +27,17 @@ public class EditAddressViewModel extends AndroidViewModel {
     }
 
     public void addAddress(AddressEntity address) {
-        new insertAsyncTask(appDatabase).execute(address);
+        new InsertAsyncTask(appDatabase).execute(address);
     }
 
     public void updateAddress(AddressEntity address) {
-        new updateAsyncTask(appDatabase).execute(address);
+        new UpdateAsyncTask(appDatabase).execute(address);
     }
 
-    private static class insertAsyncTask extends AsyncTask<AddressEntity, Void, Void> {
+    private static class InsertAsyncTask extends AsyncTask<AddressEntity, Void, Void> {
         private AppDatabase db;
 
-        insertAsyncTask(AppDatabase db) {
+        InsertAsyncTask(AppDatabase db) {
             this.db = db;
         }
 
@@ -48,10 +48,10 @@ public class EditAddressViewModel extends AndroidViewModel {
         }
     }
 
-    private static class updateAsyncTask extends AsyncTask<AddressEntity, Void, Void> {
+    private static class UpdateAsyncTask extends AsyncTask<AddressEntity, Void, Void> {
         private AppDatabase db;
 
-        updateAsyncTask(AppDatabase db) {
+        UpdateAsyncTask(AppDatabase db) {
             this.db = db;
         }
 

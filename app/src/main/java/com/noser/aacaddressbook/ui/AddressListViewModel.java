@@ -3,6 +3,7 @@ package com.noser.aacaddressbook.ui;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
+import android.os.AsyncTask;
 
 import com.noser.aacaddressbook.db.AppDatabase;
 import com.noser.aacaddressbook.db.entity.AddressEntity;
@@ -15,15 +16,33 @@ import java.util.List;
 
 public class AddressListViewModel extends AndroidViewModel {
 
-    private AppDatabase mAppDatabase;
+    private AppDatabase appDatabase;
 
     public AddressListViewModel(Application application) {
         super(application);
 
-        mAppDatabase = AppDatabase.getDatabase(this.getApplication());
+        appDatabase = AppDatabase.getDatabase(this.getApplication());
     }
 
     public LiveData<List<AddressEntity>> getAddresses() {
-        return mAppDatabase.addressDao().loadAllAddresses();
+        return appDatabase.addressDao().loadAllAddresses();
+    }
+
+    public void deleteAddress(AddressEntity address) {
+        new DeleteAsyncTask(appDatabase).execute(address);
+    }
+
+    private static class DeleteAsyncTask extends AsyncTask<AddressEntity, Void, Void> {
+        private AppDatabase db;
+
+        DeleteAsyncTask(AppDatabase db) {
+            this.db = db;
+        }
+
+        @Override
+        protected Void doInBackground(final AddressEntity... params) {
+            db.addressDao().delete(params[0]);
+            return null;
+        }
     }
 }

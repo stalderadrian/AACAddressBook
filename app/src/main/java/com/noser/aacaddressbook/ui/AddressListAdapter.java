@@ -20,10 +20,12 @@ public class AddressListAdapter extends RecyclerView.Adapter<AddressListAdapter.
 
     private List<AddressEntity> addresses;
     private View.OnClickListener clickListener;
+    private View.OnLongClickListener longClickListener;
 
-    public AddressListAdapter(List<AddressEntity> addresses, View.OnClickListener clickListener) {
+    public AddressListAdapter(List<AddressEntity> addresses, View.OnClickListener clickListener, View.OnLongClickListener longClickListener) {
         this.addresses = addresses;
         this.clickListener = clickListener;
+        this.longClickListener = longClickListener;
     }
 
     @Override
@@ -39,6 +41,7 @@ public class AddressListAdapter extends RecyclerView.Adapter<AddressListAdapter.
         holder.lastNameTextView.setText(address.getLastName());
         holder.itemView.setTag(address);
         holder.itemView.setOnClickListener(clickListener);
+        holder.itemView.setOnLongClickListener(longClickListener);
     }
 
     @Override
