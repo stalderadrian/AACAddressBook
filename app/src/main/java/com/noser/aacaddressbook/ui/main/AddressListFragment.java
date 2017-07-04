@@ -4,7 +4,6 @@ import android.arch.lifecycle.LifecycleFragment;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -15,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.noser.aacaddressbook.R;
-import com.noser.aacaddressbook.data.entity.AddressEntity;
+import com.noser.aacaddressbook.data.db.entity.AddressEntity;
 import com.noser.aacaddressbook.ui.detail.AddressDetailActivity;
 
 import java.util.ArrayList;
@@ -51,7 +50,7 @@ public class AddressListFragment extends LifecycleFragment implements View.OnCli
         super.onActivityCreated(savedInstanceState);
 
         mViewModel = ViewModelProviders.of(this).get(AddressListViewModel.class);
-        mViewModel.getAddresses().observe(this, new Observer<List<AddressEntity>>() {
+        mViewModel.getAllAddresses().observe(this, new Observer<List<AddressEntity>>() {
             @Override
             public void onChanged(@Nullable List<AddressEntity> addresses) {
                 if (addresses != null) {
@@ -64,9 +63,7 @@ public class AddressListFragment extends LifecycleFragment implements View.OnCli
     @Override
     public void onClick(View v) {
         AddressEntity address = (AddressEntity) v.getTag();
-        Intent intent = new Intent(getActivity(), AddressDetailActivity.class);
-        intent.putExtra("id", address.getId());
-        startActivity(intent);
+        startActivity(AddressDetailActivity.createIntent(getActivity(), address.getId()));
     }
 
     @Override

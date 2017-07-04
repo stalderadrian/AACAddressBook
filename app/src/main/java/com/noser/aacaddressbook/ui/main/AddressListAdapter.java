@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.noser.aacaddressbook.R;
-import com.noser.aacaddressbook.data.entity.AddressEntity;
+import com.noser.aacaddressbook.data.db.entity.AddressEntity;
 import com.noser.aacaddressbook.model.Address;
 
 import java.util.List;

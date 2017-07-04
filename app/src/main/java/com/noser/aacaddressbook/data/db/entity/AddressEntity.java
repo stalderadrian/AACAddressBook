@@ -1,4 +1,4 @@
-package com.noser.aacaddressbook.data.entity;
+package com.noser.aacaddressbook.data.db.entity;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;

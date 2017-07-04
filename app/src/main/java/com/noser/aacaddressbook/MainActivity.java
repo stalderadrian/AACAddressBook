@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 
-import com.noser.aacaddressbook.data.AppDatabase;
+import com.noser.aacaddressbook.data.db.AppDatabase;
 import com.noser.aacaddressbook.ui.main.AddressListFragment;
 import com.noser.aacaddressbook.ui.detail.AddressDetailActivity;
 

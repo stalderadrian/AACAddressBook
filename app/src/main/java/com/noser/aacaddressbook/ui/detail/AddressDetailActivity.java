@@ -3,6 +3,7 @@ package com.noser.aacaddressbook.ui.detail;
 import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.noser.aacaddressbook.R;
-import com.noser.aacaddressbook.data.entity.AddressEntity;
+import com.noser.aacaddressbook.data.db.entity.AddressEntity;
 
 /**
  * Created by Adrian Stalder on 29.06.2017.
@@ -20,10 +21,18 @@ import com.noser.aacaddressbook.data.entity.AddressEntity;
 
 public class AddressDetailActivity extends LifecycleActivity {
 
+    private static final String KEY_ADDRESS_ID = "key_address_id";
+
     private AddressDetailViewModel addressDetailViewModel;
 
     private EditText firstNameEditText;
     private EditText lastNameEditText;
+
+    public static Intent createIntent(Context context, int addressId) {
+        Intent intent = new Intent(context, AddressDetailActivity.class);
+        intent.putExtra(KEY_ADDRESS_ID, addressId);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +47,7 @@ public class AddressDetailActivity extends LifecycleActivity {
         addressDetailViewModel = ViewModelProviders.of(this).get(AddressDetailViewModel.class);
 
         Intent intent = getIntent();
-        final int id = intent.getIntExtra("id", 0);
+        final int id = intent.getIntExtra(KEY_ADDRESS_ID, 0);
         if (id != 0) {
             addressDetailViewModel.getAddress(id).observe(this, new Observer<AddressEntity>() {
                 @Override
