@@ -1,4 +1,4 @@
-package com.noser.aacaddressbook.ui;
+package com.noser.aacaddressbook.ui.main;
 
 import android.arch.lifecycle.LifecycleFragment;
 import android.arch.lifecycle.Observer;
@@ -15,7 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.noser.aacaddressbook.R;
-import com.noser.aacaddressbook.db.entity.AddressEntity;
+import com.noser.aacaddressbook.data.entity.AddressEntity;
+import com.noser.aacaddressbook.ui.detail.AddressDetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +64,7 @@ public class AddressListFragment extends LifecycleFragment implements View.OnCli
     @Override
     public void onClick(View v) {
         AddressEntity address = (AddressEntity) v.getTag();
-        Intent intent = new Intent(getActivity(), EditAddressActivity.class);
+        Intent intent = new Intent(getActivity(), AddressDetailActivity.class);
         intent.putExtra("id", address.getId());
         startActivity(intent);
     }

@@ -1,12 +1,12 @@
-package com.noser.aacaddressbook.db;
+package com.noser.aacaddressbook.data;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-import com.noser.aacaddressbook.db.dao.AddressDao;
-import com.noser.aacaddressbook.db.entity.AddressEntity;
+import com.noser.aacaddressbook.data.dao.AddressDao;
+import com.noser.aacaddressbook.data.entity.AddressEntity;
 
 /**
  * Created by Adrian Stalder on 29.06.2017.

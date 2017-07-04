@@ -1,12 +1,12 @@
-package com.noser.aacaddressbook.ui;
+package com.noser.aacaddressbook.ui.main;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
-import com.noser.aacaddressbook.db.AppDatabase;
-import com.noser.aacaddressbook.db.entity.AddressEntity;
+import com.noser.aacaddressbook.data.AppDatabase;
+import com.noser.aacaddressbook.data.entity.AddressEntity;
 
 import java.util.List;
 

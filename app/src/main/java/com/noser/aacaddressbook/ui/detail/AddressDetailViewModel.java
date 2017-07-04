@@ -1,22 +1,22 @@
-package com.noser.aacaddressbook.ui;
+package com.noser.aacaddressbook.ui.detail;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
-import com.noser.aacaddressbook.db.AppDatabase;
-import com.noser.aacaddressbook.db.entity.AddressEntity;
+import com.noser.aacaddressbook.data.AppDatabase;
+import com.noser.aacaddressbook.data.entity.AddressEntity;
 
 /**
  * Created by Adrian Stalder on 29.06.2017.
  */
 
-public class EditAddressViewModel extends AndroidViewModel {
+public class AddressDetailViewModel extends AndroidViewModel {
 
     private final AppDatabase appDatabase;
 
-    public EditAddressViewModel(Application application) {
+    public AddressDetailViewModel(Application application) {
         super(application);
 
         appDatabase = AppDatabase.getDatabase(this.getApplication());

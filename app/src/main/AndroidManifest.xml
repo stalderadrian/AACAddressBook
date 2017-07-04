@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.EditAddressActivity"
+            android:name=".ui.detail.AddressDetailActivity"
             android:label="@string/title_activity_edit_address"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

@@ -1,4 +1,4 @@
-package com.noser.aacaddressbook.ui;
+package com.noser.aacaddressbook.ui.main;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.noser.aacaddressbook.R;
-import com.noser.aacaddressbook.db.entity.AddressEntity;
+import com.noser.aacaddressbook.data.entity.AddressEntity;
 import com.noser.aacaddressbook.model.Address;
 
 import java.util.List;
